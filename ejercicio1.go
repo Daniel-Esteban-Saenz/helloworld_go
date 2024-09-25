@@ -146,12 +146,59 @@ func conversionEnPies(altura *float32) float32 {
 
 var altura float32 = 1.70
 
-const Pi = 3.1416
 
 func area(radio float64) float64 {
     return Pi * radio * radio
 }
 
+const Pi = 3.1416
+
+func circulo(radio float64) (area float64, perimetro float64, radio1 float64) {
+    area = Pi * radio * radio
+    perimetro = 2 * Pi * radio
+	radio1 = radio
+    return area, perimetro, radio1
+}
+
+func suma_variatica(numeros_suma ...int) int {
+	total := 0
+	for _, numero := range numeros_suma {
+        total = numero + total 
+    }
+	return total
+}
+
+func ecosMontaña(mensaje string, Numiteraciones uint) {
+	if Numiteraciones > 1 {
+		ecosMontaña(mensaje, Numiteraciones-1)
+	}
+	fmt.Println(mensaje, Numiteraciones)
+}
+
+func circulo_argumento(radio_argumento float64) (area_argumento func () float64, perimetro_argumento func () float64) {
+	area_argumento = func() float64 {
+		return 3.1416 * radio_argumento * radio_argumento
+	}
+	perimetro_argumento = func() float64 {
+		return 2 * 3.1416 * radio_argumento
+	}
+	return
+}
+
+func ejercicio30() {
+    var juguete string
+    fmt.Println("Elige persona, animal o cosa:")
+    fmt.Scanln(&juguete)
+    if juguete == "persona" {
+        fmt.Println("El objeto es una persona")
+    } else if juguete == "cosa" {
+        fmt.Println("El objeto es una cosa")
+    } else if juguete == "animal" {
+        fmt.Println("El objeto es un animal")
+    } else {
+        fmt.Println("El objeto es otra categoria")
+    }
+}
 
 func main() {
 
@@ -170,9 +217,21 @@ func main() {
 	// declaracion_corta()
 	// declaracion_global()
 	// scope()
-	puntero()
+	// puntero()
 	// fmt.Println("La altura es:", altura, "mts")
 	// fmt.Println("Al envejecer:", conversionEnPies(&altura), "mts")
 	// fmt.Println("Despues de envejecer:", altura, "mts")
-	fmt.Println("El area de un circulo cuyo radio es 3 es: ", area(3))
+	// fmt.Println("El area de un circulo cuyo radio es 3 es: ", area(3))
+	// a, p, r := circulo(8)
+    // fmt.Println("El area del circulo es: ", a)
+    // fmt.Println("El perimetro del circulo es: ", p)
+	// fmt.Println("El radio del circulo es: ", r)
+    // fmt.Println(suma_variatica(2))
+    // fmt.Println(suma_variatica(2, 2))
+    // fmt.Println(suma_variatica(5, 4, 3))
+	// ecosMontaña("Que pasa causa, GAAAAAAAAAAAAA", 5)
+	// area_argumento, perimetro_argumento := circulo_argumento(10)
+	// fmt.Println("el area del circulo es: ", area_argumento())
+	// fmt.Println("el perimetro del circulo es: ", perimetro_argumento())
+	ejercicio30()
 }
