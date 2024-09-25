@@ -170,7 +170,7 @@ func main() {
 	// declaracion_corta()
 	// declaracion_global()
 	// scope()
-	// puntero()
+	puntero()
 	// fmt.Println("La altura es:", altura, "mts")
 	// fmt.Println("Al envejecer:", conversionEnPies(&altura), "mts")
 	// fmt.Println("Despues de envejecer:", altura, "mts")
